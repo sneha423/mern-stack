@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Dom</title>
+    <style>
+        .bg-bablack{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-bablack">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    //adding new elements in dom(.appendChild)
+    function addLanguage(langname){
+        const li=document.createElement('li');
+        li.innerHTML=`${langname}`;
+        const ul=document.querySelector('.language');
+        ul.appendChild(li);
+    }
+     addLanguage('python');   
+     addLanguage('typescript')
+
+     //another approach
+     function addOptLang(langName){
+        const li=document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+     }
+     addOptLang('golang')
+//editing of values
+     const secondLang=document.querySelector('ul.language li:nth-child(2)');
+     const newli=document.createElement('li');
+     newli.textContent='mojo';
+     secondLang.replaceWith(newli);
+//remove
+     const lastLang=document.querySelector('ul.language li:last-child' )
+     lastLang.remove()
+</script>
+</html>
