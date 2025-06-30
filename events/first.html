@@ -23,10 +23,52 @@
     //     alert('owl clicked')
     // }
 //using events:
-    // document.getElementById('owl').addEventListener('click',function(){
-    //     alert('owl clicked again')
-    // })
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e)
+    // },false)
 //it also has a third parameter whhich is by default false
+//what will we focus on:
+//type,timestamp,defaulPrevented
+//target,toElement,srcElement,curentTraget
+//clientx,clienty,screenx,screeny
+//altkey,ctrlkey,shiftkey,keyCode
 
+//event propagation
+//false:event bubbling(inside to outside)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log('owl clicked')
+    // },false)
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('clicked inside the ul')
+    // },false)
+//true:event capturing(outside to inside)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log('owl clicked')
+    // },true)
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     e.stopPropagation()//to prevent propagating
+    //     console.log('clicked inside the ul')
+    // },true)
+
+    // document.querySelector('#images').addEventListener('click',function(e){
+    //     console.log(e.target);
+    //     console.log(e.target.parentNode);
+    //     let removeImage=e.target.parentNode;
+    //     removeImage.remove();
+    //or
+    //     removeImage.parentNode.removeChild(removeImage)
+    // })
+    //if we click on the list then its parent is ul and it will delete all images
+
+    //2nd method with checks
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target);
+        console.log(e.target.tagName);
+        if(e.target.tagName==='IMG'){
+            let removeImage=e.target.parentNode;
+            removeImage.remove();
+        }
+          
+    })
 </script>
 </html>
