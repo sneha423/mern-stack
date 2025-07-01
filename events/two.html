@@ -9,4 +9,26 @@
     <h1>Chai aur code</h1>
     <button id="stop">Stop</button>
 </body>
+<script>
+    //prameters of setTimeout:handler function , time in ms
+    // setTimeout(function(){
+    //     console.log('sneha');  
+    // },2000)
+    // setInterval(function(){
+    //     console.log('sneha');  
+    // },2000)
+//we call also pass function as a reference
+//now everyday as we see a pop up on a website after sometime promoting something and then disappearing on its own:
+    const changeText=function(){
+        document.querySelector('h1').innerHTML='best js content'
+    }
+    const change=setTimeout(changeText,2000);
+    //now to stop this change
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(change)
+        console.log('stopped');
+        //if we will click the stop button before deired time then it will prevent the change
+    })
+    
+</script>
 </html>
