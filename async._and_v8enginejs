@@ -6,3 +6,7 @@
 // for asynchronus :
 // we have web api/Node
 // in this we will learn about: fetch,register call back,promise queue,task queue
+
+// v8 engine
+// in this we have d8-console.cc which is actually the console.log() which we use in js 
+// it is a type of api only
