@@ -1,40 +1,51 @@
+//in this we learnt about api and
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body style="background-color: #212121;">
+  </head>
+  <body style="background-color: #212121">
     <!-- Value	State	Description
 0	UNSENT	Client has been created. open() not called yet.
 1	OPENED	open() has been called.
 2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
 3	LOADING	Downloading; responseText holds partial data.
 4	DONE	The operation is complete. -->
-
-</body>
-<script>
+    <button id="show">show info</button>
+    <div style="background-color: white" id="data">info:</div>
+  </body>
+  <script>
     //first we will create an object
-    const requestUrl='https://api.github.com/users/hiteshchoudhary'
-    const xhr=new XMLHttpRequest();
-    xhr.open('GET',requestUrl)
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    let data = {};
     // console.log('here');
-    xhr.onreadystatechange=function(){
-        console.log(xhr.readyState);
-        if(xhr.readyState===4){
-            // console.log(this.responseText);
-            //now to extract min data
-            // const data=this.responseText
-            // console.log(data.followers);
-            //it does not work as the response from url is of string datatype and not object
-            //to convert string into object
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        // console.log(this.responseText);
+        //     //now to extract min data
+        //     // const data=this.responseText
+        //     // console.log(data.followers);
+        //     //it does not work as the response from url is of string datatype and not object
+        //     //to convert string into object
+        // }
 
-           const data=JSON.parse(this.responseText) 
-           console.log(data.followers);
-           
-        }
-    }
-    xhr.send()
-</script>
+        data = JSON.parse(this.responseText);
+        console.log(data.followers);
+      }
+    };
+
+    xhr.send();
+    const button = document.querySelector("#show");
+    button.addEventListener("click", function () {
+      const addData = document.querySelector("#data");
+
+      addData.innerHTML += `<br>followers: ${data.followers}`;
+      addData.innerHTML += `<br> <img src='${data.avatar_url}' width='200' />`;
+    });
+  </script>
 </html>
