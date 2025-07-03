@@ -44,3 +44,5 @@ console.log(userOne);
 //return this is ptional for this one it will implicitly return values
 // what does new keyword do:
 // generates an empty instance and call constructor function then arguments are injected in this and lastly function is called
+console.log(userOne.constructor);
+//constructor is just a function of itself
