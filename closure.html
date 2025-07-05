@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>closure</title>
+  </head>
+  <body style="background-color: slategray;"></body>
+  <script>
+    //lexical scoping:
+    // special scenerio:function within a function
+    // we can get access to outer function variables in inner function
+    //but outer function can't get access to inner function variables
+    function init() {
+      let name = "sneha";
+      function displayName() {
+        console.log(name);
+      }
+      displayName();
+    }
+    init();
+    console.log('to outer',name);
+
+    function makeFun(){
+        const name='amita'
+        function displayName(){
+            console.log(name);
+            
+        }
+        //we are returning refernce of a function so we are returning its whole lexical scope 
+        return displayName
+    }
+    const myFun=makeFun()
+    myFun()
+    
+  </script>
+</html>
+
