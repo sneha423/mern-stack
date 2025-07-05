@@ -46,4 +46,33 @@ name.logMe()
 const newuser=new users('sumil')
 // newuser.addCourse()//no access
 newuser.logMe()
-console.log(newuser===name);
+// console.log(newuser===name);//false
+console.log(newuser instanceof users);//true
+
+//static properties:
+class tour{
+    constructor(tourName){
+        this.tourName=tourName
+    }
+    printMe(){
+        console.log(`destination is ${this.tourName}`);
+        
+    }
+    //static is used when we don't want to give access of a method to all the objects that are instantiated through this class
+    static createId(){
+        return `123`
+    }
+}
+const place1=new tour('canada')
+// console.log(place1.createId());
+
+class price extends tour{
+    constructor(charge,tourName){
+        super(tourName)
+        this.charge=charge
+        
+    }
+}
+const price1=new price(24000,'korea')
+price1.printMe()
+console.log(price1.createId());
