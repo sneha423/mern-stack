@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react</title>
+</head>
+<body>
+    <button>button clicked</button>
+</body>
+<script>
+    class react{
+        constructor(){
+            this.useranme='sneha'
+            this.server='https://kenpiwh:300'
+
+            //requirement
+            //we can take reference of button and console log something
+            document.querySelector('button').addEventListener('click',this.handleClick.bind(this))
+        }
+        //this keyword actually binds all the thos elements with it to access 
+        handleClick(){
+            console.log('button is clicked');
+            console.log(this.server);//it has this reference
+            
+        }
+    }
+    const app=new react()
+</script>
+</html>
