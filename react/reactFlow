@@ -1,0 +1,8 @@
+for index.js
+react makes its own dom (virtual dom) and compare it with the web dom
+power of jsx:we can render html elements through js
+in index.js:
+    raect.strictmode is for development process we can render app without it also
+purpose of rendering:we can write html through js :
+    benefit:now we have programming capabilities in html
+this index.js is loaded into index.html using react-scripts(which can be seen in package.json)
