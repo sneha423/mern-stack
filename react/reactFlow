@@ -6,3 +6,7 @@ in index.js:
 purpose of rendering:we can write html through js :
     benefit:now we have programming capabilities in html
 this index.js is loaded into index.html using react-scripts(which can be seen in package.json)
+when working in viteReact project:
+    we have to make .jsx file if we want to export our own function
+    and If you mean to render a React component, start its name with an uppercase letter.
+we can return only one thing in the return funvtion of app.jsx so we wrap all our functionalities in   <> </>(fragment)

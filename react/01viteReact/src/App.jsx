@@ -1,10 +1,14 @@
 import { useState } from 'react';
-
+import Basic from './basics';
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <h1>parctice with vite|sneha</h1>
+    <>
+    <Basic/>
+    <h1>hey!!</h1>
+    </>
+    
    
   )
 }
