@@ -10,3 +10,34 @@ when working in viteReact project:
     we have to make .jsx file if we want to export our own function
     and If you mean to render a React component, start its name with an uppercase letter.
 we can return only one thing in the return funvtion of app.jsx so we wrap all our functionalities in   <> </>(fragment)
+
+
+creating own raect project:
+function custonRender(reactElemnet, container) {
+    here we have to set each attribute seperately
+  const domElement=document.createElement(reactElemnet.type)
+    domElement.innerHTML=reactElemnet.children
+    domElement.setAttribute('href',reactElemnet.props.href)
+    domElement.setAttribute('target',reactElemnet.props.target)
+
+    container.appendChild(domElement)
+    
+
+   so we will use loop to set attributes
+   
+   
+   note:this is the syntax equivalent to what we write in jsx file in div
+   this code is telling behind the scenes of what is happening in jsx file 
+   and the code is shorter in jsx as it has js+html mixed so easier to write
+   
+  const domElement = document.createElement(reactElemnet.type);
+  domElement.innerHTML = reactElemnet.children;
+  for (const prop in reactElemnet.props) {
+    if (prop === "children") continue;
+
+    domElement.setAttribute(prop, reactElemnet.props[prop]);
+  }
+  container.appendChild(domElement);
+}
+
+this code will not work in our viteproject mainContainer.jsx as here we are making our own props and syntax but in main.jsx it is expecting its own tailored syntax
