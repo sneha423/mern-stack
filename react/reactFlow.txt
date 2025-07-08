@@ -47,4 +47,4 @@ VIRTUAL DOM,FIBRE AND RECONCILLATION
   read the github article by 'acdlite'
 
 TAILWIND AND PROPS
-  
+  props makes the components reusable
