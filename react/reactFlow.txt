@@ -38,3 +38,7 @@ function custonRender(reactElemnet, container) {
 }
 
 this code will not work in our viteproject mainContainer.jsx as here we are making our own props and syntax but in main.jsx it is expecting its own tailored syntax
+
+HOOKS:
+  help in ui updation as react has its own way we can't use classic js references in this like gtelmemtbyid or etc
+  each hook has its specific task
