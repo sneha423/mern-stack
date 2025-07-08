@@ -48,3 +48,4 @@ VIRTUAL DOM,FIBRE AND RECONCILLATION
 
 TAILWIND AND PROPS
   props makes the components reusable
+
