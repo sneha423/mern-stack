@@ -49,3 +49,9 @@ VIRTUAL DOM,FIBRE AND RECONCILLATION
 TAILWIND AND PROPS
   props makes the components reusable
 
+BASIC HOOK IN REACT:
+  in our hooksInProject we are making a project in which we are generating a random password . we can set its length and also enable whether to add numbers or special characters in it
+hook1: useCallback
+  it lets you cache a function definition b/w re-renders
+  syntax: useCallback(function,dependencies)
+  dependencies is an array where we pass our state variables
