@@ -55,3 +55,8 @@ hook1: useCallback
   it lets you cache a function definition b/w re-renders
   syntax: useCallback(function,dependencies)
   dependencies is an array where we pass our state variables
+hook2: useEffect
+  lets you synchronize a component with an external system
+  syntax: useEffect(callback function,dependencies array)
+hook3: useRef
+  used when we need to get reference of anything
