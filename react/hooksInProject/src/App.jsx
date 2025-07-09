@@ -24,7 +24,7 @@ function App() {
   return (
     <>
     <div className="w-full max-w-md mx-auto rounded-lg bg-red-500 text-orange-200" >
-      <h1 className="w-full max-w-md text-4xl text-slate-50 text-center align-middle">
+      <h1 className="w-full max-w-md text-4xl  text-center align-middle">
         Password Generator
       </h1>
       <div
@@ -33,7 +33,7 @@ function App() {
       >
         <input type="text" value={password} className="outline-none w-full align-middle py-1 px-3 " placeholder="password"
         readOnly/>
-        <button className="bg-purple-600 text-red-400">copy</button>
+        <button className="border-spacing-3 outline-double bg-purple-600 text-red-400">copy</button>
         <div
           className="text-wrap gap-3 justify-center text-white"
           
