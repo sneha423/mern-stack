@@ -63,5 +63,10 @@ hook3: useRef
 
 CUSTOM HOOKS:
   In this video we'll learn about custom hooks. how to create custom hooks how to use them along with that we'll look  how to make api call and will discuss about optimization techniques and how to create reusable component. 
-  While creating hook make sure you are using .js extension because
-  they don't return jsx they are js functions and you should follow the standard approach for creating hook that is hook should be started from use word.
+  While creating hook make sure you are using .js extension because they don't return jsx they are js functions and you should follow the standard approach for creating hook that is hook should be started from use word.
+
+currencyConverter project:
+  in this we are using custom hook and we are learning about function reusability
+  hook4: useId
+    used for generating unique ids that can be passed to accessibility attributes
+    NOTE:do not use useId to generate keys in a list. it should be generated from your data
