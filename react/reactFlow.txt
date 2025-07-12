@@ -75,3 +75,17 @@ REACT-ROUTER PROJECT:
   link is used in place of a tag(a is not used as page gets refreshed with it)
   structure: to in place of href
   navlink classes is written in callback and in backtics we use flags like isactive or ispending
+  Layout/root functionalities:
+    we gave an outlet and did nesting in router
+  router functionalities:
+    nesting done by giving layout in top level and then storing various components in outlet
+    to create router we only need RouterProvider(like a wrapper) then use createBrowserRouter followed by createRoutesFromElements
+    useParams is a hook in react-router-dom used to access values in a component
+  API calls handling:
+    use loader and make an export element fetching api data . then pass that component in the loader
+
+CONTEXT API:
+  we make a global file or const containing our data and when any card needs it it can take data from there rather than passing it on various components (like div in div )
+  redux is a variale of context api that helps in state management
+  react-redux , redux-toolkit(RTK) are also some libraries
+  useContext hook
