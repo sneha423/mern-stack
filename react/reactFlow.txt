@@ -70,3 +70,8 @@ currencyConverter project:
   hook4: useId
     used for generating unique ids that can be passed to accessibility attributes
     NOTE:do not use useId to generate keys in a list. it should be generated from your data
+
+REACT-ROUTER PROJECT:
+  link is used in place of a tag(a is not used as page gets refreshed with it)
+  structure: to in place of href
+  navlink classes is written in callback and in backtics we use flags like isactive or ispending
