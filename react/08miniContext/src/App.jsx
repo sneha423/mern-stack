@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import userContextProvider from './Context/UserContextProvider'
+import UserContextProvider from './Context/UserContextProvider'
 import Login from './componenets/Login'
 import Profile from './componenets/Profile'
 function App() {
