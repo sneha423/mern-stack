@@ -92,3 +92,15 @@ CONTEXT API:
 
 context API with local storage:
   project:todolist manager
+
+IMP: STEPS FOR MAKING CONTEXT API PROJECT
+  step1-> we handle context folder and make our main context file(.js). we use createContext and useContext and export a const using .provider form
+  step2-> in app.jsx we import the contextprovider and the functions that we havr to use are just initialised in context file but their actual definitions(what they will do) is written here
+  step3-> we make the components folder and design the componenrts. we set its states using useState and useEffect to call the functions that we made in app.jsx
+
+REDUX TOOLKIT:
+  till now, we are making our components functional and exporting it but we can also use classes in it
+note: skippable topics->class based components , basic redux
+  redux is an independent library and to connect it with react we use react-redux
+  redux-toolkit has internally made middleware
+  store: 
