@@ -13,7 +13,7 @@ function App() {
   const editTodo = (id, todo) => {
     //loop through ttodos array
     setTodos((prev) =>
-      prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo))
+      prev.map((prevTodo) => (prevTodo.id === id ? todo: prevTodo))
     );
   };
   const deleteTodo = (id) => {
@@ -24,11 +24,10 @@ function App() {
   }
   useEffect(()=>{
     const todos=JSON.parse(localStorage.getItem('todos'))
-    if(todos &&todos.length()>0){
+    if(todos &&todos.length>0){
       setTodos(todos)
     }
-
-  })
+  },[])
   useEffect(()=>{
     localStorage.setItem('todos',JSON.stringify(todos))
   },[todos])

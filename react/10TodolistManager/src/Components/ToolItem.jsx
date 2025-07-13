@@ -9,7 +9,7 @@ function TodoItem({ todo }) {
         setIsTodoEditable(false)
     }
     const toggleCompleted=()=>{
-        toggleComplete(todo)
+        toggleComplete(todo.id)
     }
     return (
         <div
@@ -28,8 +28,8 @@ function TodoItem({ todo }) {
                 className={`border outline-none w-full bg-transparent rounded-lg ${
                     isTodoEditable ? "border-black/10 px-2" : "border-transparent"
                 } ${todo.completed ? "line-through" : ""}`}
-                value={todoMsg}
-                onChange={(e) => setTodoMsg(e.target.value)}
+                value={todomsg}
+                onChange={(e) => setTodomsg(e.target.value)}
                 readOnly={!isTodoEditable}
             />
             {/* Edit, Save Button */}
@@ -39,7 +39,7 @@ function TodoItem({ todo }) {
                     if (todo.completed) return;
 
                     if (isTodoEditable) {
-                        editTodo();
+                        edit();
                     } else setIsTodoEditable((prev) => !prev);
                 }}
                 disabled={todo.completed}
