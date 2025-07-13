@@ -56,7 +56,7 @@ function App() {
           </button>
         </div>
 
-        <div className="text-wrap gap-5 justify-center text-black flex gap-4">
+        <div className="text-wrap gap-4 justify-center text-black flex gap-4">
           <input
             type="range"
             min={6}

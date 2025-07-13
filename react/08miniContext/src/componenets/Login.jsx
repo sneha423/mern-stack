@@ -12,10 +12,14 @@ function Login() {
   return (
     <div>
         <h2>Login</h2>
+        <div >
         <input type="text" value={username}
         onChange={(e)=>{setusername(e.target.value)}} placeholder='username' />
+        {"   "}
         <input type="text" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder='password' />
-        <button onClick={handleSubmit}></button>
+        {'   '}
+        <button onClick={handleSubmit}>submit</button>
+        </div>
     </div>
   )
 }

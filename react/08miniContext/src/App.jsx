@@ -9,11 +9,11 @@ function App() {
   
 
   return (
-    <userContextProvider>
+    <UserContextProvider>
       <h1>mini context api project</h1>
       <Login/>
       <Profile/>
-    </userContextProvider>
+    </UserContextProvider>
   )
 }
 
