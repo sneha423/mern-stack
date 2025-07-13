@@ -89,3 +89,6 @@ CONTEXT API:
   redux is a variale of context api that helps in state management
   react-redux , redux-toolkit(RTK) are also some libraries
   useContext hook
+
+context API with local storage:
+  project:todolist manager
