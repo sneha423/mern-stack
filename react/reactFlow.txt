@@ -104,7 +104,10 @@ note: skippable topics->class based components , basic redux
   redux is an independent library and to connect it with react we use react-redux
   redux-toolkit has internally made middleware
 main topics/process
-  store: use configureStore and it takes object as a parameter
-  reducers/slices: use createSlice ,nonaoid(generate unique ids)
-  useSelector
+  store:(start from here) use configureStore and it takes object as a parameter. we need only one store for a project and it is called single source of truth
+  reducers/slices: use createSlice ,nonaoid(generate unique ids) . we have access to two things
+    state:updated state value in the store
+    action:methods like action.payload
+  then push it into the states(no need to spread like in context api)
+  useSelector:to select values in callback on states
   useDispatch: it uses reducers to change values in store using action.payload(we don't have to write extra code just pass the value)
