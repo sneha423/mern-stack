@@ -103,4 +103,8 @@ REDUX TOOLKIT:
 note: skippable topics->class based components , basic redux
   redux is an independent library and to connect it with react we use react-redux
   redux-toolkit has internally made middleware
-  store: 
+main topics/process
+  store: use configureStore and it takes object as a parameter
+  reducers/slices: use createSlice ,nonaoid(generate unique ids)
+  useSelector
+  useDispatch
