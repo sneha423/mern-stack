@@ -107,4 +107,4 @@ main topics/process
   store: use configureStore and it takes object as a parameter
   reducers/slices: use createSlice ,nonaoid(generate unique ids)
   useSelector
-  useDispatch
+  useDispatch: it uses reducers to change values in store using action.payload(we don't have to write extra code just pass the value)
