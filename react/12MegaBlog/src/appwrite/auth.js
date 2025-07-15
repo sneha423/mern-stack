@@ -56,4 +56,4 @@ export class AuthService {
 }
 const authService = new AuthService();
 export default authService;
-//these all methoda can be accesed using . operation on authService
+//these all methoda can be accesed using . operation on authService 
