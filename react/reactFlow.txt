@@ -129,3 +129,6 @@ STEPS:
 1. using environment variables:
   we are basically connecting our project to appwrite backend
 2. building authentication service with appwrite
+3. handling database and storage methods
+4. configure redux-toolkit in big projects:
+    making authSlice and postSlice(assignment)
