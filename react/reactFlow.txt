@@ -111,3 +111,18 @@ main topics/process
   then push it into the states(no need to spread like in context api)
   useSelector:to select values in callback on states
   useDispatch: it uses reducers to change values in store using action.payload(we don't have to write extra code just pass the value)
+
+
+
+MEGA PROJECT:
+  in this we will create a blog/posts app
+  we will use appwrite for backend which we haven't learnt yet
+  topics which are new and we will learn through documentation->
+  1.appwrite: we will use its database and storage functions especially for handling images. can also store styling in this
+  2.tinyMCE:react component
+  3.html-react-parser
+  4.react hook form
+  5.env variables
+
+using environment variables:
+  
