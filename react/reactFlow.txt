@@ -132,3 +132,5 @@ STEPS:
 3. handling database and storage methods
 4. configure redux-toolkit in big projects:
     making authSlice and postSlice(assignment)
+    and building basic header,footer in app.jsx
+5. making production grade react components
