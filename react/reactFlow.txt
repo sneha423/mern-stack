@@ -133,4 +133,7 @@ STEPS:
 4. configure redux-toolkit in big projects:
     making authSlice and postSlice(assignment)
     and building basic header,footer in app.jsx
-5. making production grade react components
+5. making production grade react components:
+    we made a general button and input jsx component
+    react hook(new):forwardRef->
+    Lets your component expose a DOM node to a parent component using a ref.
