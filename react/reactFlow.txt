@@ -138,3 +138,6 @@ STEPS:
     react hook(new):forwardRef->
     Lets your component expose a DOM node to a parent component using a ref.
 6. react hook: useForm
+    in this we take parameters register(array containing all the data) and handleSubmit(a function) 
+    then, when we have to process data we use ...register(spread) . it has many properties (validate,required etc) which we can learn through documentation
+    
