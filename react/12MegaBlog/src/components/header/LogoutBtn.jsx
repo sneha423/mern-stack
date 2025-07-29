@@ -9,7 +9,7 @@ function LogoutBtn() {
       dispatch(logOut());
     });
   };
-  return <button>
+  return <button onClick={logoutHandler}>
     Logout
   </button>
 }

@@ -1,6 +1,6 @@
 import React, { act } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Container from "../container/Container";
 import Logo from "../Logo";
 import LogoutBtn from "./LogoutBtn";
@@ -40,7 +40,7 @@ function Header() {
       <Container>
         <nav className="flex">
           <div className="mr-4 ">
-            <Link t0="/">
+            <Link to="/">
               <Logo />
             </Link>
           </div>
