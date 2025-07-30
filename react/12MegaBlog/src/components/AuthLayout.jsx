@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom'
         //     navigate('login')
         // }
         if(authentication && authstatus!==authentication){
-            navigate('/logIn')
+            navigate('/login')
         }
         else if(!authentication && authstatus!==authentication){
             navigate('/')

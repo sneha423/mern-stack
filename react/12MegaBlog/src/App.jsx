@@ -15,27 +15,25 @@ function App() {
       .then((userData) => {
         if (userData) {
           dispatch(logIn({ userData }));
-        }
-        else{
-          dispatch(logOut())
+        } else {
+          dispatch(logOut());
         }
       })
-      .finally(()=>setLoading(false));
+      .finally(() => setLoading(false));
   }, []);
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
-        <Header/>
-        <Outlet/>
-        {/* <main>
-          
-        </main> */}
-        <Footer/>
+        <Header />
+        <main>
+          TODO:
+          <Outlet />
+        </main>
+        <Footer />
       </div>
     </div>
-  ):null
-  
+  ) : null;
 }
 
 export default App;

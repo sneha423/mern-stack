@@ -5,8 +5,6 @@ import databaseService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 function PostForm(post) {
-  const navigate = useNavigate();
-  const userData = useSelector((state) => state.user.userData);
   const { register, handleSubmit, watch, setValue, getValues, control } =
     useForm({
       defaultValues: {
@@ -16,6 +14,8 @@ function PostForm(post) {
         status: post?.status || "active",
       },
     });
+  const navigate = useNavigate();
+  const userData = useSelector((state) => state.user.userData);
   const submit = async (data) => {
     if (post) {
       const file = data.featuredImage[0]
@@ -31,7 +31,7 @@ function PostForm(post) {
       if (dbPost) {
         navigate(`/post/${dbPost.$id}`);
       } else {
-        const file = databaseService.uploadfile(data.featuredImage[0]);
+        const file = await databaseService.uploadfile(data.featuredImage[0]);
         if (file) {
           const fileId = file.$id;
           data.featuredImage = fileId;
@@ -54,7 +54,6 @@ function PostForm(post) {
         .replace(/^[a-zA-Z\d\s]+/g, "-")
         .replace(/\s/g, "-");
 
-      return "";
     }
   }, []);
   useEffect(() => {
