@@ -9,15 +9,30 @@ export default function Post() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
+  const authStatus = useSelector((state) => state.auth.status);
   const isAuthor = post && userData ? post.userId === userData.$id : false;
   useEffect(() => {
-    if (slug) {
-      databaseService.getPost(slug).then((post) => {
-        if (post) setPost(post);
-        else navigate("/");
-      });
-    } else navigate("/");
-  }, [slug, navigate]);
+    if (slug && authStatus) {
+      databaseService
+        .getPost(slug)
+        .then((post) => {
+          if (post) setPost(post);
+          else navigate("/");
+        })
+        .catch((error) => {
+          // Added catch for getPost errors
+          console.error("Error fetching single post:", error);
+          navigate("/"); // Navigate away on error
+        });
+    } else if (!authStatus) {
+      // User not logged in, navigate away or show message
+      console.log("Not logged in, cannot view post.");
+      navigate("/"); // Or display a message saying "Please log in"
+    } else {
+      // No slug, navigate away
+      navigate("/");
+    }
+  }, [slug, navigate, authStatus]);
 
   const deletePost = () => {
     databaseService.deletePost(post.$id).then((status) => {
