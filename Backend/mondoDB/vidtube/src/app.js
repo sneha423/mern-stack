@@ -18,5 +18,6 @@ import { errorHandler } from "./middlewares/error.middlewares.js"
 app.use('/api/v1/healthcheck',healthCheckRouter)
 app.use('api/v1/users',userRouter)
 
-app.use(errorHandler)
+app.use(errorHandler)//this is production grade stuff 
+//project will work even without all this error handling but iis a good practice for industry level
 export {app}
