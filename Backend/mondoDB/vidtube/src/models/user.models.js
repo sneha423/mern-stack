@@ -46,7 +46,9 @@ const userSchema = new Schema(
         ref: "Video",
       },
     ],
-    refreshtoken: {},
+    refreshtoken: {
+      type: String,
+    },
   },
   { timestamps: true } //for createdat and updatedat
 );
@@ -64,15 +66,15 @@ userSchema.methods.generateAccessToken = function () {
   //short lived access token
   jwt.sign(
     { _id: this._id, email: this.email, username: this.username },
-    process.env.ACCESS_TOKEN_SECRET,{expiresIn:process.env.ACCESS_TOKEN_EXPIRY}
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: process.env.ACCESS_TOKEN_EXPIRY }
   );
-}; 
+};
 userSchema.methods.generateRefeshToken = function () {
   //short lived access token
-  jwt.sign(
-    { _id: this._id },
-    process.env.REFRESH_TOKEN_SECRET,{expiresIn:process.env.REFRESH_TOKEN_EXPIRY}
-  );
-}; 
+  jwt.sign({ _id: this._id }, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+  });
+};
 export const User = mongoose.model("User", userSchema); //good practice to store the user in upper pattern and singlular
 //   with this we can import the model anytime and it will also give access to database features like query selection etc.
