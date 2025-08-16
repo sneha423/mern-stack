@@ -7,7 +7,31 @@ import {
 } from "../utils/cloudinary.js";
 import multer from "multer";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import { response } from "express";
+
+const generateAccessASndRefreshToken = async (userId) => {
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      console.log("user not found");
+      throw new ApiError(500, "user not found!");
+    } else {
+      const accessToken = user.generateAccessToken();
+      const refreshToken = user.generateRefreshToken();
+      user.refreshtoken = refreshToken;
+      await user.save({ validateBeforeSave: false });
+      return { accessToken, refreshToken };
+    }
+  } catch (error) {
+    throw new ApiError(
+      500,
+      "something went wrong in generating access or refresh token"
+    );
+  }
+};
+
 const registerUser = asyncHandler(async (req, res) => {
+  console.log("📂 Files received by multer:", req.files);
   const { email, password, username } = req.body;
   //validation
   if ([email, username, password].some((field) => field?.trim() === "")) {
@@ -57,7 +81,7 @@ const registerUser = asyncHandler(async (req, res) => {
       coverImage: coverImage?.url || "",
       email,
       password,
-      username: username.toLoerCase(),
+      username: username.toLowerCase(),
     });
     const createdUser = await User.findById(user._id).select(
       "-password -refershToken"
@@ -73,14 +97,59 @@ const registerUser = asyncHandler(async (req, res) => {
       .status(201)
       .json(new ApiResponse(200, createdUser, "User registered successfully"));
   } catch (error) {
-    console.log('user creation failed');
-    if(avatar){
-      await deleteFromCloudianry(avatar.public_id)
+    console.log("user creation failed");
+    if (avatar) {
+      await deleteFromCloudianry(avatar.public_id);
     }
-    if(coverImage){
-      await deleteFromCloudianry(coverImage.public_id)
+    if (coverImage) {
+      await deleteFromCloudianry(coverImage.public_id);
     }
-    throw new ApiError(500,'something went wrong while registring a user and images were deleted')
+    throw new ApiError(
+      500,
+      "something went wrong while registring a user and images were deleted"
+    );
   }
 });
-export { registerUser };
+
+const loginUser = asyncHandler(async (req, res) => {
+  //get data from body
+  const { username, email, password } = req.body;
+  //validation
+  if (!email) {
+    throw new ApiError(400, "email is required");
+  }
+  const user = await User.findOne({
+    $or: [{ username }, { email }],
+  });
+  if (!user) {
+    throw new ApiError(404, "user not found");
+  }
+  //validate password
+  const isPasswordValid = await user.isPasswordCorrect(password);
+  if (!isPasswordValid) {
+    throw new ApiError(501, "invalid credentials");
+  }
+
+  const { accessToken, refreshToken } = await generateAccessASndRefreshToken(
+    user._id
+  );
+
+  const loggedInUser = await User.findById(user._id).select(
+    "-password -refreshtoken"
+  );
+  // if(!loggedInUser){
+
+  // }
+  const options = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  };
+  return res
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie('refreshtoken',refreshToken,options)
+    .json(new ApiResponse(200,{user:loggedInUser,refreshToken,accessToken},'user logged in successfully'))
+
+});
+
+export { registerUser,loginUser };
