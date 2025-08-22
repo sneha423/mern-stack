@@ -28,6 +28,11 @@ router.route("/register").post(
       maxCount: 1,
     },
   ]),
+  (req, res, next) => {
+    console.log("📂 Multer files:", req.files);
+    console.log("📝 Body:", req.body);
+    next();
+  },
   registerUser
 );
 
@@ -37,7 +42,7 @@ router.route("/refresh-token").post(refreshAccessToken);
 //secured routes
 router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/change-password").post(verifyJWT, changeCurrentPassword);
-router.route("/current-user").post(verifyJWT, getCurrentUser);
+router.route("/current-user").get(verifyJWT, getCurrentUser);
 
 router.route("/c/:username").get(verifyJWT, getUserChannelProfile);
 router.route("/update-account").patch(verifyJWT, updateAccountDetails);

@@ -34,6 +34,8 @@ const generateAccessASndRefreshToken = async (userId) => {
 
 const registerUser = asyncHandler(async (req, res) => {
   console.log("📂 Files received by multer:", req.files);
+  console.log("📝 Body received:", req.body);
+  console.log("📂 Files received by multer:", req.files);
   const { email, password, username } = req.body;
   //validation
   if ([email, username, password].some((field) => field?.trim() === "")) {
@@ -45,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
   if (existedUser) {
     throw new ApiError(400, "user with email or username already exists");
   }
-  console.warn(req.files);
+  // console.warn(req.files);
   const avatarLocalPath = req.files?.avatar?.[0]?.path;
   const coverLocalPath = req.files?.coverImage?.[0]?.path;
   if (!avatarLocalPath) {
