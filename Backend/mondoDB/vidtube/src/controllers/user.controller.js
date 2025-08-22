@@ -163,7 +163,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
   const incomingRefreshToken =
-    req.cookies.refreshToken || req.body.refershToken;
+    req.cookies.refreshtoken || req.body.refershToken;
   if (!incomingRefreshToken) {
     throw new ApiError(401, "refresh token is required");
   }
@@ -189,7 +189,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     return res
       .status(200)
       .cookie("accessToken", accessToken, options)
-      .cookie("refershToken", newRefreshToken, options)
+      .cookie("refershtoken", newRefreshToken, options)
       .json(
         new ApiResponse(
           200,
@@ -261,7 +261,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     throw new ApiError(400, "username and email are required");
   }
   const user = await User.findByIdAndUpdate(
-    req.uer?._id,
+    req.user?._id,
     {
       $set: {
         username,
