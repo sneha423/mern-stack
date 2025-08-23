@@ -29,11 +29,15 @@ const videoSchema = new Schema(
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
     views: {
       type: Number,
       default: 0,
     },
-    ispublished: {
+    isPublished: {
       type: Boolean,
       default: true,
     },
@@ -44,5 +48,5 @@ const videoSchema = new Schema(
   },
   { timestamps: true }
 );
-videoSchema.plugin(mongooseAggregatePaginate)
+videoSchema.plugin(mongooseAggregatePaginate);
 export const Video = mongoose.model("Video", videoSchema);

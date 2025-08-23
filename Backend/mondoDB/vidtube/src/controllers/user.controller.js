@@ -3,13 +3,12 @@ import { ApiError } from "../utils/Apierror.js";
 import { User } from "../models/user.models.js";
 import {
   uploadOnCloudinary,
-  deleteFromCloudianry,
+  deleteFromCloudinary,
 } from "../utils/cloudinary.js";
 import multer from "multer";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { response } from "express";
 import jwt from "jsonwebtoken";
-import { channel } from "diagnostics_channel";
 import mongoose from "mongoose";
 const generateAccessASndRefreshToken = async (userId) => {
   try {
@@ -103,10 +102,10 @@ const registerUser = asyncHandler(async (req, res) => {
   } catch (error) {
     console.log("user creation failed");
     if (avatar) {
-      await deleteFromCloudianry(avatar.public_id);
+      await deleteFromCloudinary(avatar.public_id);
     }
     if (coverImage) {
-      await deleteFromCloudianry(coverImage.public_id);
+      await deleteFromCloudinary(coverImage.public_id);
     }
     throw new ApiError(
       500,

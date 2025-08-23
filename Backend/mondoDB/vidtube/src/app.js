@@ -21,10 +21,11 @@ app.use(express.static("public"));
 //import routes
 import healthCheckRouter from "./routes/heathCheck.routes.js";
 import userRouter from "./routes/user.routes.js";
+import videoRouter from "./routes/video.routes.js"
 import { errorHandler } from "./middlewares/error.middlewares.js";
 app.use("/api/v1/healthcheck", healthCheckRouter);
 app.use("/api/v1/users", userRouter);
-
+app.use("/api/v1/videos",videoRouter)
 app.use(errorHandler); //this is production grade stuff
 //project will work even without all this error handling but iis a good practice for industry level
 export { app };
