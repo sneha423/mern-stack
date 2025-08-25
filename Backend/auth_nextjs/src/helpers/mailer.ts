@@ -10,11 +10,11 @@ interface SendEmailParams {
   userId: string;
 }
 
-export const sendEmail = async ({
-  email,
-  emailType,
-  userId,
-}: SendEmailParams) => {
+export const sendEmail = async (
+  { email, emailType, userId }: SendEmailParams,
+  p0: string,
+  p1: string
+) => {
   try {
     const hashedToken = await bcrypt.hash(userId.toString(), 10);
     if (emailType === "VERIFY") {

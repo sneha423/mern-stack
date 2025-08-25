@@ -32,11 +32,11 @@ export async function POST(request: NextRequest) {
     //create new user
     const newUser = new User({ username, email, password: hashedPassword });
     const savedUser = await newUser.save();
-    await sendEmail({
+    await sendEmail(
       email,
-      emailType: "VERIFY",
-      userId: savedUser._id,
-    });
+      "Verify your email address",
+      `Please verify your account by clicking this link: https://yourdomain.com/verify/${savedUser._id}`
+    );
 
     return NextResponse.json(
       { message: "User created successfully", success: true, savedUser },

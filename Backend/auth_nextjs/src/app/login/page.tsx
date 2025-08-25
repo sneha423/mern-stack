@@ -30,6 +30,10 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+  const onForgotPassword = () => {
+    router.push("/forgotPassword");
+  };
+
   useEffect(() => {
     if (user.email.length > 0 && user.password.length > 0) {
       setButtonDisabled(false);
@@ -66,6 +70,9 @@ export default function LoginPage() {
         }}
         placeholder="password"
       ></input>
+      <button onClick={onForgotPassword} className="border-b-blue-700 mt-2">
+        Forgot Password?
+      </button>
       <button
         onClick={onLogin}
         className="p-2 border-amber-600rounded-lg mb-4 focus:outline-amber-100 focus:border-gray-200"
