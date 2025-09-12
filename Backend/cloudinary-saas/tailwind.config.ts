@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+// import daisyui from "daisyui";
 const config: Config = {
   darkMode: "class",
   content: [
@@ -16,9 +16,6 @@ const config: Config = {
       },
     },
   },
-  // plugins: [require("daisyui")],
-  // daisyui: {
-  //   themes: ["dark"],
-  // },
+  // plugins: [daisyui],
 };
 export default config;
